@@ -1,19 +1,8 @@
 import { browser, element, by } from 'protractor';
 
 export class BlankPage {
-  navigateTo() {
-    return browser.get('/');
-  }
-
-  getNavBar() {
-    return element(by.css('nav'));
-  }
-
-  getNavBarElements() {
-    return element.all(by.css('nav>*'));
-  }
-
-  getTitle() {
-    return element(by.css('h1'));
-  }
+  navigateTo = () => browser.get('/');
+  getNavBar = () => element(by.css('nav'));
+  getNavBarElements = () => element.all(by.css('nav>*'));
+  getTitle = () => element(by.css('h1'));
 }
