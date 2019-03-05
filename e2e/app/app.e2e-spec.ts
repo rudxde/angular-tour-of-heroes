@@ -4,22 +4,22 @@ import { browser } from '../../node_modules/protractor';
 describe('blank App', () => {
     let page: BlankPage;
 
-    beforeEach(() => {
+    beforeEach(async () => {
         page = new BlankPage();
-        page.navigateTo();
+        await page.navigateTo();
     });
 
     it('should display Title', async () => {
-        expect(await page.getTitle().getText()).toBeTruthy();
+        await expect(await page.getTitle().getText()).toBeTruthy();
     });
 
-    it('navbar should habe more than 1 item', () => {
-        expect(page.getNavBarElements().count()).toBeGreaterThan(1);
+    it('navbar should have more than 1 item', async () => {
+        await expect(page.getNavBarElements().count()).toBeGreaterThan(1);
     });
 
     it('first navbar Link should be open', async () => {
         const link = await page.getNavBarElements().first().getAttribute('routerLink');
-        expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + link);
+        await expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + link);
     });
 
 });
